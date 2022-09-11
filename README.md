@@ -1,70 +1,79 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# lb-ui-components
 
-## Available Scripts
+  ## Tools You Might Need
+  1. Version Control System - [git](https://git-scm.com/downloads) 
+  2. Package Manager - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+  3. Code Editor - [VsCode](https://code.visualstudio.com/download) (recommended)
+  4. Runtime - [NodeJS](https://nodejs.org)
+  5. Node version manager - [nvm for windows](https://github.com/coreybutler/nvm-windows) - [nvm for mac](https://tecadmin.net/install-nvm-macos-with-homebrew)
+  6. AWS CLI - [aws cli installation guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+  
 
-In the project directory, you can run:
+## ~Installation and Setup Guide:
 
-### `npm start`
+1. [clone repository](#clone-repository) : This will clone your repository in local machine.
+2. [installation and setup](#installation-and-setup) : This step will help you setting up the environment.
+3. [Installing node module](#installing-node-modules): This step will install/add all the packages required.
+4. [running storybook](#running-storybook): This step will build storybook of all the custom components and run it on the browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+If you face any errors, refer to [common error's guide](#common-errors-guide)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  
 
-### `npm test`
+### clone repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  
 
-### `npm run build`
+```sh
+git clone https://github.com/MyRetailCare/lb-ui-components.git
+cd lb-ui-components
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### installation and setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Since we will be using aws command within this project. It's better to install aws cli.
 
-### `npm run eject`
+You can refer to [aws cli installation guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  
+#### npm run prepare
+After successful aws cli installation, run the below command:
+```sh
+npm run prepare
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This command will run **aws codeartifact login --tool npm --repository lb-ui-components --domain legalbuddy**
+ 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you face any .npmrc or legalbuddy file not found error. you can run below commands in terminal via Run as administrator mode (Windows cmd) 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sh
+npm install -g npmrc
+npmrc -c legalbuddy
+npmrc legalbuddy
+```
+now try running the [npm run prepare](#npm-run-prepare) and when it runs successfully, authenticate with below details:
+```sh
+> AWS Access Key ID: <Wil be given>
+> AWS Secret Access key: <Wil be given>
+> Default Region Name: <Will be given, as it varies>
+> Default Output Format: json
+```
+## installing node modules
 
-## Learn More
+```sh
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## running storybook
+```sh
+npm run storybook
+```
+If you face any errors, refer to [common error's guide](#common-errors-guide)
+## common errors guide
+###### [NPM ERR Code E401: Unable to authenticate, need: Bearer authorization](https://stackoverflow.com/questions/59894644/npm-err-code-e401-unable-to-authenticate-need-bearer-authorization)
+##### [issue-with-publishing-npm-package-org-couchdb-userusername-is-not-in-the-npm](https://stackoverflow.com/questions/67514615/issue-with-publishing-npm-package-org-couchdb-userusername-is-not-in-the-npm)
+ 
